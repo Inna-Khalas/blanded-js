@@ -103,3 +103,30 @@ const btnInput = document.querySelector('.login-form button');
 //   });
 // }
 // countdown(5).then(res => console.log(res));
+
+
+
+// - Використовуй prompt та повертай значення звідти.
+// - Створи функцію, яка буде набувати значення з prompt і повертатиме проміс.
+// Якщо значення не є числом, відхиляй проміс та логіруй "error".
+// Якщо значення парне, вирішуй проміс та повертай "even" через 1 секунду.
+// Якщо значення не парне, вирішуй проміс та повертай "odd" через 2 секунди.
+
+const promptValue = +prompt('Enter something');
+function checkValue (promptValue) {
+    return new Promise ((resolve, reject) => {
+if(isNaN(promptValue)) {
+reject('error')
+}
+if(promptValue % 2 === 0) {
+  setTimeout(() => resolve('even'), 1000)
+} 
+if(promptValue % 2 !== 0) {
+    setTimeout(() => resolve('odd'), 2000)
+}
+    })
+}
+
+checkValue(promptValue) 
+.then(value => console.log(value))
+.catch(error => console.log(error))
