@@ -137,18 +137,25 @@ const btnInput = document.querySelector('.login-form button');
 // Напишіть функцію calculateAge(birthDate), яка приймає дату народження у форматі YYYY-MM-DD і повертає поточний вік.
 // Підказка: Використайте об'єкт Date для обчислення різниці між сьогоднішньою датою і датою народження.
 
-function calculateAge(birthDate) {
-  const currentDate = new Date();
-  const birthDateF = new Date(birthDate);
+// function calculateAge(birthDate) {
+//   const currentDate = new Date();
+//   const birthDateF = new Date(birthDate);
 
-  let years = currentDate.getFullYear() - birthDateF.getFullYear();
-  const months = currentDate.getMonth() - birthDateF.getMonth();
-  const days = currentDate.getDate() - birthDateF.getDate();
+//   let years = currentDate.getFullYear() - birthDateF.getFullYear();
+//   const months = currentDate.getMonth() - birthDateF.getMonth();
+//   const days = currentDate.getDate() - birthDateF.getDate();
 
-  if (months < 0 || (months === 0 && days < 0)) years -= 1;
-  return years;
-}
+//   if (months < 0 || (months === 0 && days < 0)) years -= 1;
+//   return years;
+// }
 
-console.log(calculateAge('2000-09-01'));
-console.log(calculateAge('2000-11-21'));
-console.log(calculateAge('2000-10-27'));
+// console.log(calculateAge('2000-09-01'));
+// console.log(calculateAge('2000-11-21'));
+// console.log(calculateAge('2000-10-27'));
+/////////////////////////////////////////////////////////////////////////////
+// Створи перелік справ.
+// Є інпут, в який вводиться назва завдання.
+// Після натискання на кнопку "Додати" завдання додається до списку #list.
+// Список із завданнями має бути доступним після перезавантаження сторінки.
+// * Поруч із кожним завданням знаходиться кнопка "Видалити", щоб можна було
+// Забрати завдання зі списку.
