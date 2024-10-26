@@ -104,8 +104,6 @@ const btnInput = document.querySelector('.login-form button');
 // }
 // countdown(5).then(res => console.log(res));
 
-
-
 // - Використовуй prompt та повертай значення звідти.
 // - Створи функцію, яка буде набувати значення з prompt і повертатиме проміс.
 // Якщо значення не є числом, відхиляй проміс та логіруй "error".
@@ -132,6 +130,25 @@ const btnInput = document.querySelector('.login-form button');
 // .catch(error => console.log(error))
 
 // Додай відображення дати і часу в реальному часі
-const timeCurrent = document.querySelector(".date span");
-timeCurrent.textContent = new Date().toLocaleString("uk-UA");
-setInterval(() => timeCurrent.textContent = new Date().toLocaleString("uk-UA"), 1000);
+// const timeCurrent = document.querySelector(".date span");
+// timeCurrent.textContent = new Date().toLocaleString("uk-UA");
+// setInterval(() => timeCurrent.textContent = new Date().toLocaleString("uk-UA"), 1000);
+////////////////////////////////////////////////
+// Напишіть функцію calculateAge(birthDate), яка приймає дату народження у форматі YYYY-MM-DD і повертає поточний вік.
+// Підказка: Використайте об'єкт Date для обчислення різниці між сьогоднішньою датою і датою народження.
+
+function calculateAge(birthDate) {
+  const currentDate = new Date();
+  const birthDateF = new Date(birthDate);
+
+  let years = currentDate.getFullYear() - birthDateF.getFullYear();
+  const months = currentDate.getMonth() - birthDateF.getMonth();
+  const days = currentDate.getDate() - birthDateF.getDate();
+
+  if (months < 0 || (months === 0 && days < 0)) years -= 1;
+  return years;
+}
+
+console.log(calculateAge('2000-09-01'));
+console.log(calculateAge('2000-11-21'));
+console.log(calculateAge('2000-10-27'));
