@@ -26,7 +26,14 @@ const KEY_LOGIN = "user-data"
 
 function handleLogin(event) {
     event.preventDefault();
-
+    if( btnInput.textContent === "Logout"){
+    localStorage.removeItem(KEY_LOGIN);
+    loginForm.reset();
+    emailInput.removeAttribute("readonly");
+    passwordInput.removeAttribute("readonly");
+    btnInput.textContent = "Login";
+    return;
+    }
     const emailValue = emailInput.value.trim()
     const passwordValue = passwordInput.value.trim()
     if (emailValue === "" || passwordValue === "") {
@@ -43,4 +50,13 @@ function handleLogin(event) {
     emailInput.setAttribute("readonly", true);
     passwordInput.setAttribute("readonly", true);
 
+}
+const savedData = localStorage.getItem(KEY_LOGIN);
+if(savedData) {
+   const parsedData = JSON.parse(savedData);
+   emailInput.value = parsedData.email ?? "";
+   passwordInput.value = parsedData.password ?? "";
+   btnInput.textContent = "Logout"
+    emailInput.setAttribute("readonly", true);
+    passwordInput.setAttribute("readonly", true);
 }
